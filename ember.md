@@ -364,9 +364,11 @@ To begin with, we're going to need a link to create a new post on our listing of
 
 We're using a new route here called `posts.new`. Just like with the `post` route, we will need to define this in `app/assets/router.js.coffee`
 
+```coffee
 Blorgh.Router.map ()->
   @resource 'post', path: '/posts/:post_id'
   @resource 'posts.new', path:'/post/new'
+```
 
 For this route to do anything, we will need to create a template at `app/assets/javascripts/templates/posts/new.hbs`:
 
@@ -408,7 +410,7 @@ If we refresh this page and attempt to create a new post, we'll see this error:
 Uncaught TypeError: Object [object Object] has no method 'save'
 ```
 
-This is happening because our `Blorgh.Post` model does not have this method. Let's add that now in `app/assets:
+This is happening because our `Blorgh.Post` model does not have this method. Let's add that now in `app/assets`:
 
 ```coffee
 Blorgh.Post = Ember.Object.extend
